@@ -7,7 +7,7 @@ const travi = `Когда мне было 15 лет, и я ходил срать
 однажды я срать сел, и слышу, батя где-то у двери встал в отдалении, ну я жопу вытер, и на пол накарачики присел, а там щель очень широкая снизу у двери, 
 ну я в щель и смотрю, а там батя на карачиках сидит и в щель смотрит, и мне говорит: ты чё? ебанутый? чё ты там делаешь? батя кстати всё время какие-то травы пьёт, 
 чтобы срать часто, срёт по 5 раз в день, а потом говорит, что жопу жжёт, и ещё пердит он. пиздец короче! реальная история. я не тролль.`
-const sliced = travi.split(' ')
+const sliced: string[] = travi.split(' ')
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -15,26 +15,26 @@ export function activate(context: vscode.ExtensionContext) {
 		
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
 			const traviCompletion = new vscode.CompletionItem(`travi`)
-			let linePrefix = document.lineAt(position).text.substr(0, position.character).split(' ').filter(word => word.includes('travi')).join('');
-			let postfix = 0;
+			let linePrefix: string = document.lineAt(position).text.substr(0, position.character).split(' ').filter(word => word.includes('tra')).join('');
+			let postfix: number = 0;
 			let fromSliced: string[] = [...sliced];
 			if (linePrefix !== 'travi' && linePrefix.includes('travi')) {
-				postfix = parseInt(linePrefix.replace('travi', '')) || 0 ;
+				postfix = parseInt(linePrefix.replace('travi', ''), 10) || 0 ;
 				traviCompletion.label = `travi${postfix === 0 ? '' : postfix}`;
 				if (fromSliced.length < postfix) {
-					let diff = Math.ceil(postfix/sliced.length);
+					let diff: number = Math.ceil(postfix/sliced.length);
 					for (let i = 0; i < diff; i++) {
 						fromSliced = [...fromSliced, '\n', '\t',...sliced]
 					}
 				}
 				traviCompletion.insertText = `\t${fromSliced.slice(0, postfix).join(' ')}`;
 			} else if (linePrefix === 'travi') {
-				traviCompletion.insertText = `${travi}`;	
+				traviCompletion.insertText = travi;	
 			}
 			return [
 				traviCompletion
 			];
 		}
-	}, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'tra', 'trav');
+	}, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'i');
 	context.subscriptions.push(provider);
 } 

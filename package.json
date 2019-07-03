@@ -3,11 +3,14 @@
 	"displayName": "travi",
 	"description": "Lorem ipsum for cyrillic alphabet.",
 	"version": "0.0.1",
+	"publisher": "spnq",
+	"icon": "tea.png",
+	"repository": {"type": "git", "url": "https://github.com/spnq/travi"},
 	"engines": {
 		"vscode": "^1.35.0"
 	},
 	"categories": [
-		"Other"
+		"Snippets"
 	],
 		"activationEvents": [
 			"*"
@@ -16,8 +19,8 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.travi",
+				"title": "Travi Cyrillic Text Generator"
 			}
 		]
 	},
