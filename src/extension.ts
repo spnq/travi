@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 	let provider = vscode.languages.registerCompletionItemProvider('*', {
 		
 		provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
-			const traviCompletion = new vscode.CompletionItem(`travi`)
+			const traviCompletion = new vscode.CompletionItem(`travi`);
 			let linePrefix: string = document.lineAt(position).text.substr(0, position.character).split(' ').filter(word => word.includes('tra')).join('');
 			let postfix: number = 0;
 			let fromSliced: string[] = [...sliced];
@@ -24,10 +24,10 @@ export function activate(context: vscode.ExtensionContext) {
 				if (fromSliced.length < postfix) {
 					let diff: number = Math.ceil(postfix/sliced.length);
 					for (let i = 0; i < diff; i++) {
-						fromSliced = [...fromSliced, '\n', '\t',...sliced]
+						fromSliced = [...fromSliced, '\n',...sliced];
 					}
 				}
-				traviCompletion.insertText = `\t${fromSliced.slice(0, postfix).join(' ')}`;
+				traviCompletion.insertText = `${fromSliced.slice(0, postfix).join(' ')}`;
 			} else if (linePrefix === 'travi') {
 				traviCompletion.insertText = travi;	
 			}
