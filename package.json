@@ -2,18 +2,21 @@
 	"name": "travi",
 	"displayName": "travi",
 	"description": "Cyrillic Lorem ipsum",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"publisher": "spnq",
 	"icon": "tea.png",
-	"repository": {"type": "git", "url": "https://github.com/spnq/travi"},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/spnq/travi"
+	},
 	"engines": {
 		"vscode": "^1.35.0"
 	},
 	"categories": [
 		"Snippets"
 	],
-		"activationEvents": [
-			"*"
+	"activationEvents": [
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
