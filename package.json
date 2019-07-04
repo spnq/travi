@@ -1,7 +1,7 @@
 {
 	"name": "travi",
 	"displayName": "travi",
-	"description": "Cyrillic Lorem ipsum",
+	"description": "Cyrillic Lorem Ipsum",
 	"version": "1.0.0",
 	"publisher": "spnq",
 	"icon": "tea.png",
@@ -19,6 +19,7 @@
 		"*"
 	],
 	"main": "./out/extension.js",
+	"keywords":["lorem", "ipsum", "cyrillic", "text", "generator"],
 	"contributes": {
 		"commands": [
 			{
