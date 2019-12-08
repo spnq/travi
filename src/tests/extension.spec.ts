@@ -1,4 +1,4 @@
-import * as ext from '../travi.extension';
+import * as ext from '../extension';
 
 describe('removeLastPunctuationMark', () => {
     test('should remove punctuation marks from given string', () => {
