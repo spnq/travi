@@ -7,7 +7,7 @@ import { PUNCTUATION_REGEXP, COMMAND_WITH_NUMBER_REGEXP } from "./regexps";
  * @param document vscode document
  * @param position position of cursor
  */
-export const extractNumber = (document: vscode.TextDocument, position: vscode.Position): number => {
+const extractNumber = (document: vscode.TextDocument, position: vscode.Position): number => {
 
     /**
      * Deletes the keyword (COMMAND) from the last match on the line to avoid dealing with multiple 
@@ -30,7 +30,7 @@ export const extractNumber = (document: vscode.TextDocument, position: vscode.Po
  * Removes punctuation from the end of given text 
  * @param text string to be cut
  */
-export const removeLastPunctuationMark = (text: string): string => {
+const removeLastPunctuationMark = (text: string): string => {
     return PUNCTUATION_REGEXP.test(text[text.length-1]) ? text.slice(0,-1) : text;
 };
 
@@ -38,7 +38,7 @@ export const removeLastPunctuationMark = (text: string): string => {
  * Generates text with given number of words
  * @param wordCount number of words to generate
  */
-export const generateText = (wordCount: number): string => {
+const generateText = (wordCount: number): string => {
     if (wordCount === 0) return SPLITED_TEXT.join(' ');
 
     /**
