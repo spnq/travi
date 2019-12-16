@@ -1,5 +1,8 @@
 # Change Log
 
+## [1.0.2]
+- Refactor source code
+
 ## [1.0.1]
 - Add tags for marketplace
 
